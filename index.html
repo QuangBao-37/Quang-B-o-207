@@ -21,17 +21,47 @@
     .glow {
       text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff;
     }
-    img {
-      margin-top: 20px;
+
+    .avatar-container {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      margin: 30px auto;
+    }
+
+    .avatar-border {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 240px;
+      height: 240px;
       border-radius: 50%;
+      background: conic-gradient(#00ff00 0%, #004400 25%, #00ff00 50%, #004400 75%, #00ff00 100%);
+      animation: spin 4s linear infinite;
+      z-index: 1;
+    }
+
+    .avatar-img {
+      position: absolute;
+      top: 10px;
+      left: 10px;
       width: 200px;
       height: 200px;
-      box-shadow: 0 0 30px #0ff;
+      border-radius: 50%;
       border: 4px solid #fff;
+      box-shadow: 0 0 30px #0ff;
+      z-index: 2;
     }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
     #controls {
       margin-top: 20px;
     }
+
     button {
       padding: 10px 20px;
       font-size: 18px;
@@ -42,6 +72,7 @@
       cursor: pointer;
       box-shadow: 0 0 10px #0ff;
     }
+
     canvas {
       position: absolute;
       bottom: 0;
@@ -53,7 +84,10 @@
 </head>
 <body onclick="initAudio()" style="cursor: pointer;">
   <h1 class="glow">Quang Bảo ProFile</h1>
-  <img src="avatar.jpg" alt="Ảnh đại diện">
+  <div class="avatar-container">
+    <div class="avatar-border"></div>
+    <img src="avatar.jpg" alt="Ảnh đại diện" class="avatar-img">
+  </div>
   <div id="controls">
     <button onclick="toggleAudio()">🔊 Tắt/Bật Nhạc</button>
   </div>
@@ -106,7 +140,7 @@
       let x = 0;
       for (let i = 0; i < bufferLength; i++) {
         const barHeight = dataArray[i];
-        ctx.fillStyle = `rgb(${barHeight + 100},0,255)`;
+        ctx.fillStyle = `rgb(${barHeight + 100},255,0)`;
         ctx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight / 2);
         x += barWidth + 1;
       }
