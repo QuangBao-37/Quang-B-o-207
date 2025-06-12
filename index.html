@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>iPhone Giả Lập</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="iphone">
+    <img src="assets/iphone-frame.png" class="iphone-frame" alt="iPhone frame" />
+    <div class="screen">
+      <div class="status-bar">
+        <span>9:41</span>
+        <span>📶 Wi-Fi 🔋</span>
+      </div>
+      <div class="apps">
+        <div class="app" onclick="openApp('facebook')">
+          <img src="assets/app-icons/facebook.png" alt="Facebook" />
+          <p>Facebook</p>
+        </div>
+        <div class="app" onclick="openApp('rickroll')">
+          <img src="assets/app-icons/youtube.png" alt="YouTube" />
+          <p>YouTube</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="appModal" class="modal hidden">
+    <video id="videoPlayer" controls autoplay>
+      <source src="assets/rickroll.mp4" type="video/mp4" />
+    </video>
+    <button onclick="closeApp()">Đóng</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

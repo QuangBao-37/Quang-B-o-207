@@ -1,0 +1,83 @@
+body {
+  background: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.iphone {
+  position: relative;
+  width: 390px;
+  height: 844px;
+}
+
+.iphone-frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.screen {
+  position: absolute;
+  top: 60px;
+  left: 18px;
+  width: 354px;
+  height: 724px;
+  background: #f8f8f8;
+  border-radius: 40px;
+  z-index: 0;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.status-bar {
+  text-align: center;
+  font-weight: bold;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.apps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.app {
+  width: 70px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.app img {
+  width: 60px;
+  border-radius: 14px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  flex-direction: column;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+video {
+  width: 80%;
+  border-radius: 10px;
+}
